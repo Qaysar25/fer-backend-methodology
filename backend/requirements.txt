@@ -1,0 +1,10 @@
+Flask
+flask-cors
+flask-sqlalchemy
+flask-jwt-extended
+flask-bcrypt
+python-dotenv
+flasgger
+opencv-python
+numpy
+pillow
