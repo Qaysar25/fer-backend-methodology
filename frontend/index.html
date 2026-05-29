@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard | FER Systems</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body class="app-page">
+    <nav class="navbar navbar-expand-lg app-navbar sticky-top">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html" aria-label="FER Systems dashboard">
+          <span class="nav-logo"><i class="fa-solid fa-face-smile-wink"></i></span>
+          <span>FER Systems</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+            <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="history.html"><i class="fa-solid fa-clock-rotate-left"></i> History</a></li>
+            <li class="nav-item"><button class="btn btn-outline-light btn-sm logout-btn" type="button" data-logout><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</button></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero-section">
+        <div class="container">
+          <div class="row align-items-center gy-5">
+            <div class="col-lg-6">
+              <p class="secure-kicker"><i class="fa-solid fa-shield-halved"></i> Real-time satisfaction intelligence</p>
+              <h1>Facial Emotion Recognition for Customer Satisfaction</h1>
+              <p class="hero-subtitle">Upload a face image to detect emotions in real-time and turn customer reactions into clear, measurable insight.</p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#uploadPanel"><i class="fa-solid fa-cloud-arrow-up me-2"></i>Start Scan</a>
+                <a class="btn btn-soft" href="history.html"><i class="fa-solid fa-table-list me-2"></i>View History</a>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="face-illustration" aria-label="AI face emotion illustration">
+                <svg viewBox="0 0 520 420" role="img" aria-labelledby="faceTitle">
+                  <title id="faceTitle">Human face with emotion labels</title>
+                  <defs>
+                    <linearGradient id="faceGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#7dd3fc"/>
+                      <stop offset="52%" stop-color="#a78bfa"/>
+                      <stop offset="100%" stop-color="#fb7185"/>
+                    </linearGradient>
+                    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                      <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#0f172a" flood-opacity=".22"/>
+                    </filter>
+                  </defs>
+                  <path d="M91 211c0-97 74-176 170-176s170 79 170 176-74 176-170 176S91 308 91 211Z" fill="url(#faceGlow)" opacity=".2"/>
+                  <path d="M143 207c0-74 50-134 118-134s118 60 118 134-50 134-118 134-118-60-118-134Z" fill="#f8fafc" filter="url(#softShadow)"/>
+                  <path d="M169 191c23-64 72-92 129-86 44 18 65 55 69 106-27-17-58-26-92-27-43-2-79 1-106 7Z" fill="#312e81" opacity=".9"/>
+                  <circle cx="221" cy="219" r="12" fill="#111827"/>
+                  <circle cx="303" cy="219" r="12" fill="#111827"/>
+                  <path d="M219 273c26 24 61 24 87 0" fill="none" stroke="#111827" stroke-width="11" stroke-linecap="round"/>
+                  <path d="M185 247c-26 4-43-9-44-31" fill="none" stroke="#38bdf8" stroke-width="7" stroke-linecap="round"/>
+                  <path d="M377 216c23 13 29 34 13 55" fill="none" stroke="#fb7185" stroke-width="7" stroke-linecap="round"/>
+                  <g class="scan-lines">
+                    <path d="M121 157h282" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M136 292h252" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M110 224h304" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
+                  </g>
+                </svg>
+                <span class="emotion-chip chip-happy">Happy</span>
+                <span class="emotion-chip chip-sad">Sad</span>
+                <span class="emotion-chip chip-angry">Angry</span>
+                <span class="emotion-chip chip-surprise">Surprise</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-xl-7">
+              <div class="panel upload-panel" id="uploadPanel">
+                <div class="panel-heading">
+                  <div>
+                    <p class="section-label">Emotion scan</p>
+                    <h2>Image Upload</h2>
+                  </div>
+                  <i class="fa-solid fa-lock secure-icon" title="Secure local preview"></i>
+                </div>
+                <label class="drop-zone" id="dropZone" for="imageInput">
+                  <input id="imageInput" type="file" accept="image/*" hidden>
+                  <span class="drop-icon"><i class="fa-solid fa-cloud-arrow-up"></i></span>
+                  <span class="drop-title">Drop a face image here</span>
+                  <span class="drop-copy">or click to browse JPG, PNG, or WEBP</span>
+                </label>
+                <div class="preview-wrap d-none" id="previewWrap">
+                  <img id="previewImage" alt="Uploaded face preview">
+                  <div>
+                    <p class="mb-1 fw-semibold" id="fileName">Selected image</p>
+                    <p class="text-muted mb-0 small">Ready for mock emotion analysis.</p>
+                  </div>
+                </div>
+                <button class="btn btn-primary detect-btn" id="detectButton" type="button" disabled>
+                  <span><i class="fa-solid fa-wand-magic-sparkles me-2"></i>Detect Emotion</span>
+                  <span class="spinner-border spinner-border-sm d-none" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+
+            <div class="col-xl-5">
+              <div class="panel result-panel">
+                <div class="panel-heading">
+                  <div>
+                    <p class="section-label">Live result</p>
+                    <h2>Detection Output</h2>
+                  </div>
+                  <span class="status-pill">Mock AI</span>
+                </div>
+                <div class="result-empty" id="resultEmpty">
+                  <i class="fa-regular fa-face-smile"></i>
+                  <p>Upload an image to see the detected emotion and confidence score.</p>
+                </div>
+                <div class="result-content d-none" id="resultContent">
+                  <div class="emotion-result" id="emotionResult">Happy</div>
+                  <div class="confidence-ring" id="confidenceRing" style="--value: 0">
+                    <span id="confidenceValue">0%</span>
+                  </div>
+                  <div class="progress confidence-progress" role="progressbar" aria-label="Confidence score">
+                    <div class="progress-bar" id="confidenceBar" style="width: 0%"></div>
+                  </div>
+                  <p class="text-muted mb-0" id="resultCopy">Confidence score appears after analysis.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad pt-0">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="metric-tile"><i class="fa-solid fa-camera-retro"></i><span>Total scans</span><strong id="totalScans">1,284</strong></div>
+            </div>
+            <div class="col-md-4">
+              <div class="metric-tile"><i class="fa-solid fa-gauge-high"></i><span>Average confidence</span><strong id="avgConfidence">92%</strong></div>
+            </div>
+            <div class="col-md-4">
+              <div class="metric-tile"><i class="fa-solid fa-bolt"></i><span>Speed</span><strong>0.42s</strong></div>
+            </div>
+          </div>
+          <div class="row g-4 mt-1">
+            <div class="col-lg-7">
+              <div class="panel chart-panel">
+                <div class="panel-heading">
+                  <div>
+                    <p class="section-label">Analytics</p>
+                    <h2>Emotion Distribution</h2>
+                  </div>
+                </div>
+                <canvas id="emotionChart" height="160"></canvas>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div class="panel activity-panel">
+                <div class="panel-heading">
+                  <div>
+                    <p class="section-label">Latest scans</p>
+                    <h2>Recent Activity</h2>
+                  </div>
+                </div>
+                <ul class="activity-list" id="activityList"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>
